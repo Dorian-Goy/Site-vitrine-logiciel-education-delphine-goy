@@ -7,23 +7,39 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- added cursive font for testimonials -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="main-header">
-        <nav class="container">
+        <nav class="container nav-container">
             <div class="logo">
                 <span class="material-symbols-outlined">school</span>
                 <strong>EduSoft</strong>
             </div>
-            <ul class="nav-links">
+            
+            <!-- Menu burger pour mobile -->
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- Menu central -->
+            <ul class="nav-links nav-center" id="navMenu">
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#features">Fonctionnalités</a></li>
                 <li><a href="#avis">Avis</a></li>
-                <li><a href="#" class="btn-login">Connexion</a></li>
             </ul>
+            
+            <!-- Actions droite -->
+            <div class="nav-actions">
+                <a href="#" class="btn-login">Connexion</a>
+                <a href="#" class="btn-signup">Créer un compte</a>
+            </div>
         </nav>
     </header>
 
@@ -39,11 +55,11 @@
         <div class="hero-testimonials">
             <div class="testimonial t1">
                 <p class="testimonial-text">"L'outil idéal pour gérer l'hétérogénéité en CM2."</p>
-                <p class="testimonial-author"><a href="#" class="testimonial-link">Marie</a> / CE2 / 37 ans</p>
+                <p class="testimonial-author"><a href="#" class="testimonial-link">Marie</a> / CM2 / 37 ans</p>
             </div>
             <div class="testimonial t2">
                 <p class="testimonial-text">"Enfin une différenciation qui ne me prend pas 3h par soir."</p>
-                <p class="testimonial-author"><a href="#" class="testimonial-link">Jacques</a> / CM2 / 58 ans</p>
+                <p class="testimonial-author"><a href="#" class="testimonial-link">Jacques</a> / CE2 / 58 ans</p>
             </div>
             <div class="testimonial t3">
                 <p class="testimonial-text">"Mes élèves de 6ème ont repris goût aux maths."</p>
@@ -53,6 +69,12 @@
                 <p class="testimonial-text">"Le suivi est précis, intuitif et conforme aux programmes."</p>
                 <p class="testimonial-author"><a href="#" class="testimonial-link">Hélène</a> / Sixième / 44 ans</p>
             </div>
+        </div>
+    </section>
+
+    <section class="discover-section">
+        <div class="container">
+            <a href="#" class="btn-discover">Découvrir</a>
         </div>
     </section>
 

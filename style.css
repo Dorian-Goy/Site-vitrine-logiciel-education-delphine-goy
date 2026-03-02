@@ -56,6 +56,44 @@ nav {
     width: 100%;
 }
 
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+}
+
+.nav-center {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -135,6 +173,29 @@ nav {
     padding: 8px 24px;
     border: 1px solid #dadce0;
     border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-login:hover {
+    background-color: var(--bg-light);
+}
+
+.btn-signup {
+    background: var(--google-blue);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-signup:hover {
+    background: #1557b0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 /* SECTION HERO */
@@ -180,6 +241,32 @@ nav {
     font-weight: 500;
 }
 
+/* SECTION DÉCOUVRIR - BUTTON */
+.discover-section {
+    padding: 40px 0;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.btn-discover {
+    background: var(--google-blue);
+    color: white;
+    padding: 18px 48px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    display: inline-block;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.btn-discover:hover {
+    background: #1557b0;
+    transform: translateY(-2px) scale(1.08);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
 /* SECTION HERO - TESTIMONIALS */
 .hero-testimonials {
     position: absolute;
@@ -194,18 +281,23 @@ nav {
 
 .testimonial {
     position: absolute;
-    max-width: 180px;
+    /* allow quotes to expand rather than capping at 180px */
+    max-width: none;
     pointer-events: auto;
     animation: float 3s ease-in-out infinite;
+    /* scale now included in animation so it isn't wiped out */
+    transform-origin: top left;
 }
 
 .testimonial-text {
     font-style: italic;
-    color: var(--text-dark);
-    font-size: 0.95em;
+    color: #555; /* lighter grey for cursive text */
+    font-size: 1.8em; /* significantly larger now */
     line-height: 1.4;
     margin-bottom: 10px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* added darker shadow */
+    font-family: 'Dancing Script', cursive; /* softer cursive font */
+    visibility: hidden; /* hide until font loads */
 }
 
 .testimonial-author {
@@ -223,8 +315,13 @@ nav {
 
 .testimonial-link:hover {
     color: var(--google-blue);
-    text-decoration: underline;
+    text-decoration: underline; /* underline on hover already present */
 }
+/* fixed testimonial coordinates - edit these values to reposition */
+.hero-testimonials .testimonial.t1 { top: 25%; left: 70%; }
+.hero-testimonials .testimonial.t2 { top: 60%; left: 16%; }
+.hero-testimonials .testimonial.t3 { top: 15%; left: 5%; }
+.hero-testimonials .testimonial.t4 { top: 67%; left: 80%; }
 
 /* Positions aléatoires sans alignement */
 .t1 {
@@ -242,13 +339,13 @@ nav {
 .t4 {
     animation-delay: 1.5s;
 }
-
+  
 @keyframes float {
     0%, 100% {
-        transform: translateY(0px);
+        transform: translateY(0px) scale(1.2);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-10px) scale(1.2);
     }
 }
 
@@ -308,7 +405,57 @@ nav {
     .q-item { max-width: 200px; font-size: 1em; }
 }
 
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-center {
+        position: fixed;
+        left: 0;
+        top: 64px;
+        width: 250px;
+        height: calc(100vh - 64px);
+        background: var(--white);
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 0;
+        justify-content: flex-start;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    }
+    
+    .nav-center.active {
+        transform: translateX(0);
+    }
+    
+    .nav-center li {
+        padding: 0 20px;
+    }
+    
+    .nav-center a {
+        display: block;
+        padding: 12px 0;
+    }
+    
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
 @media (max-width: 600px) {
     /* hide floating quotes on small screens to avoid clutter */
     .quotes-wrapper { display: none; }
+    /* hide hero testimonials on mobile/PC detection by width */
+    .hero-testimonials { display: none !important; }
 }

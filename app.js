@@ -1,58 +1,43 @@
 console.log('app.js loaded');
 
-function normalize(val) {
-  if (typeof val === 'number') return val + '%';
-  if (typeof val === 'string') {
-    let cleaned = val.trim();
-    if (/^[0-9\.]+(%|px)$/.test(cleaned)) return cleaned;
-    if (/^[0-9\.]+$/.test(cleaned)) return cleaned + '%';
-    console.warn('testimonialCoords value invalid, using as-is:', val);
-    return val;
-  }
-  return val;
-}
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
 
-function positionTestimonials() {
-  console.log('positionTestimonials invoked');
-  const testimonials = document.querySelectorAll('.testimonial');
-  console.log('testimonials nodeList', testimonials);
-  const testimonialCoords = {
-    t1: { top: '20%', left: '85%' },
-    t2: { top: '45%', left: '50%' },
-    t3: { top: '65%', left: '30%' },
-    t4: { top: '35%', left: '15%' }
-  };
-
-  testimonials.forEach((t) => {
-    const cls = Array.from(t.classList).find(c => c.startsWith('t'));
-    console.log('processing', t.className, '->', cls);
-    if (cls && testimonialCoords[cls]) {
-      let {top, left} = testimonialCoords[cls];
-      top = normalize(top);
-      left = normalize(left);
-      console.log('placing', cls, {top,left});
-      t.style.position = 'absolute';
-      t.style.top = top;
-      t.style.left = left;
-      t.style.right = 'auto';
-      t.style.bottom = 'auto';
-      console.log('applied inline', t.style.top, t.style.left,
-                  'computed', getComputedStyle(t).top, getComputedStyle(t).left);
-    }
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', function() {
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
   });
-
-  const testimonialLinks = document.querySelectorAll('.testimonial-link');
-  testimonialLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const name = this.textContent.toLowerCase();
-      window.location.href = `#profile/${name}`;
+  
+  // Close menu when a link is clicked
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      menuToggle.classList.remove('active');
+      navMenu.classList.remove('active');
     });
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', positionTestimonials);
+// this file no longer handles positioning; CSS now defines fixed coordinates
+// It now also waits for the cursive font to load before showing quotes.
+
+console.log('app.js loaded (no positioning logic)');
+
+// Reveal testimonials when the Dancing Script font is available
+if (document.fonts) {
+  document.fonts.load('1em "Dancing Script"').then(function() {
+    document.querySelectorAll('.testimonial-text').forEach(el => {
+      el.style.visibility = 'visible';
+    });
+  });
 } else {
-  positionTestimonials();
+  // fallback: just show them after a short timeout
+  window.addEventListener('load', function() {
+    setTimeout(() => {
+      document.querySelectorAll('.testimonial-text').forEach(el => {
+        el.style.visibility = 'visible';
+      });
+    }, 200);
+  });
 }
