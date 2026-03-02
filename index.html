@@ -1,58 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>NomDuLogiciel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-    }
-    header {
-      padding: 80px 20px;
-    }
-    h1 {
-      font-size: 48px;
-    }
-    .btn {
-      display: inline-block;
-      margin: 20px;
-      padding: 15px 30px;
-      background: #3b82f6;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-    section {
-      padding: 60px 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edusoft | Suivi pédagogique Cycle 2</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>NomDuLogiciel</h1>
-  <p>La solution simple et puissante pour ...</p>
-  <a href="#" class="btn">Acheter une licence</a>
-  <a href="#" class="btn">Télécharger</a>
-</header>
+    <header class="main-header">
+        <nav class="container">
+            <div class="logo">
+                <span class="material-symbols-outlined">school</span>
+                <strong>EduSoft</strong>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Fonctionnalités</a></li>
+                <li><a href="#">Tarifs</a></li>
+                <li><a href="#" class="btn-login">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<section>
-  <h2>Fonctionnalités</h2>
-  <p>• Rapide</p>
-  <p>• Sécurisé</p>
-  <p>• Optimisé</p>
-</section>
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>La différenciation pédagogique,<br><span>enfin simplifiée.</span></h1>
+            <p>Le logiciel de suivi pour le Cycle 2 qui s'adapte au rythme de chaque élève en Français et Mathématiques.</p>
+            <div class="hero-btns">
+                <a href="#" class="btn-primary">Essayer gratuitement</a>
+                <a href="#" class="btn-secondary">Voir la démo</a>
+            </div>
+        </div>
+    </section>
 
-<section>
-  <h2>Tarifs</h2>
-  <p>Licence Standard – 29€</p>
-  <p>Licence Pro – 59€</p>
-</section>
+    <section class="quotes-section">
+        <div class="container">
+            <div class="quote-card">
+                <p class="quote-text">"Grâce à EduSoft, j'ai réduit mon temps de correction de moitié et mes élèves de CE1 progressent à leur rythme."</p>
+                <p class="quote-author">Mme Martin, Professeure des Écoles (CP/CE1) — <span class="verified">Client vérifié</span></p>
+            </div>
+        </div>
+    </section>
 
+    <script src="script.js"></script>
 </body>
 </html>
