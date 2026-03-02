@@ -1,4 +1,4 @@
-console.log('script.js loaded');
+console.log('app.js loaded');
 
 function normalize(val) {
   if (typeof val === 'number') return val + '%';
@@ -56,6 +56,3 @@ if (document.readyState === 'loading') {
 } else {
   positionTestimonials();
 }
-
-
-
