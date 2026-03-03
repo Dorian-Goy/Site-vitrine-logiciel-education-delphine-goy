@@ -5,51 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil | Jacques Moreau</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Roboto', sans-serif; margin: 0; background: #f8f9fa; color: #3c4043; }
-        .page { max-width: 980px; margin: 0 auto; padding: 24px; }
-        .top-link { text-decoration: none; color: #1a73e8; font-weight: 500; }
-        .card { background: #fff; border-radius: 10px; padding: 20px; margin-top: 18px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
-        .header { display: flex; gap: 20px; align-items: center; }
-        .avatar-placeholder { width: 120px; height: 120px; border-radius: 50%; border: 2px solid #dadce0; overflow: hidden; }
-        .avatar-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .name { margin: 0; font-size: 30px; }
-        .meta { color: #70757a; margin-top: 6px; }
-        .section-title { margin: 0 0 10px; font-size: 20px; }
-        .placeholder { color: #70757a; }
-    </style>
+    <link rel="stylesheet" href="../profile-template.css">
 </head>
 <body>
-    <div class="page">
-        <a class="top-link" href="/">← Retour au site</a>
+    <main class="page" id="profile-root"></main>
 
-        <section class="card header">
-            <div class="avatar-placeholder" aria-label="Photo de profil"><img class="avatar-img" src="/assets/profiles/jacques.jpg" alt="Photo de Jacques Moreau" onerror="this.onerror=null;this.src='/assets/default-profile.svg';"></div>
-            <div>
-                <h1 class="name">Jacques Moreau</h1>
-                <p class="meta">CE2 • 58 ans</p>
-            </div>
-        </section>
-
-        <section class="card">
-            <h2 class="section-title">Description</h2>
-            <p class="placeholder">Professeur des écoles en CE2, Jacques s'appuie sur EduSoft pour visualiser rapidement les acquis et proposer des parcours adaptés aux besoins des élèves.</p>
-        </section>
-
-        <section class="card">
-            <h2 class="section-title">Informations</h2>
-            <p class="placeholder">École : Jean Moulin (Lyon) • Matières : Français, Mathématiques • Niveaux suivis : CE2 • Utilisation d'EduSoft : 18 mois</p>
-        </section>
-
-        <section class="card">
-            <h2 class="section-title">Localisation</h2>
-            <p class="placeholder">Marseille, France</p>
-        </section>
-
-        <section class="card">
-            <h2 class="section-title">Activité</h2>
-            <p class="placeholder">Section activité à venir.</p>
-        </section>
-    </div>
+    <script>
+        window.PROFILE_DATA = {
+            name: 'Jacques Moreau',
+            meta: 'CE2 • 58 ans',
+            avatarSrc: '../assets/profiles/jacques.jpg',
+            avatarAlt: 'Photo de Jacques Moreau',
+            description: "Professeur des écoles en CE2, Jacques s'appuie sur EduSoft pour visualiser rapidement les acquis et proposer des parcours adaptés aux besoins des élèves.",
+            information: "École : Jean Moulin (Lyon) • Matières : Français, Mathématiques • Niveaux suivis : CE2 • Utilisation d'EduSoft : 18 mois",
+            location: 'Marseille, France',
+            activity: 'Section activité à venir.'
+        };
+    </script>
+    <script src="../profile-template.js"></script>
 </body>
 </html>

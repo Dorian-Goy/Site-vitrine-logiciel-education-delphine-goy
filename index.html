@@ -18,7 +18,7 @@
     <!-- Global site styles -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="pre-discover">
 
     <!-- =========================
          HEADER / TOP NAVIGATION
@@ -58,7 +58,7 @@
             
             <!-- Right-side action buttons -->
             <div class="nav-actions">
-                <a href="#" class="btn-signup">Connexion</a>
+                <a href="connexion/" class="btn-signup">Connexion</a>
             </div>
         </nav>
     </header>
@@ -88,19 +88,19 @@
             <div class="testimonial t1">
                 <p class="testimonial-text">"L'outil idéal pour gérer l'hétérogénéité en CM2."</p>
                 <!-- Name links to dedicated profile page -->
-                <p class="testimonial-author"><a href="/marie" class="testimonial-link">Marie</a> / CM2 / 37 ans</p>
+                <p class="testimonial-author"><a href="marie/" class="testimonial-link">Marie</a> / CM2 / 37 ans</p>
             </div>
             <div class="testimonial t2">
                 <p class="testimonial-text">"Enfin une différenciation qui ne me prend pas 3h par soir."</p>
-                <p class="testimonial-author"><a href="/jacques" class="testimonial-link">Jacques</a> / CE2 / 58 ans</p>
+                <p class="testimonial-author"><a href="jacques/" class="testimonial-link">Jacques</a> / CE2 / 58 ans</p>
             </div>
             <div class="testimonial t3">
                 <p class="testimonial-text">"Mes élèves de 6ème ont repris goût aux maths."</p>
-                <p class="testimonial-author"><a href="/steve" class="testimonial-link">Steve</a> / CM1 / 22 ans</p>
+                <p class="testimonial-author"><a href="steve/" class="testimonial-link">Steve</a> / CM1 / 22 ans</p>
             </div>
             <div class="testimonial t4">
                 <p class="testimonial-text">"Le suivi est précis, intuitif et conforme aux programmes."</p>
-                <p class="testimonial-author"><a href="/helene" class="testimonial-link">Hélène</a> / Sixième / 44 ans</p>
+                <p class="testimonial-author"><a href="helene/" class="testimonial-link">Hélène</a> / Sixième / 44 ans</p>
             </div>
         </div>
     </section>
@@ -108,7 +108,55 @@
     <!-- Secondary CTA section -->
     <section class="discover-section">
         <div class="container">
-            <a href="#" class="btn-discover">Découvrir</a>
+            <a href="#" class="btn-discover" id="discoverTrigger" aria-expanded="false">Découvrir</a>
+        </div>
+    </section>
+
+    <div class="discover-fade" aria-hidden="true">
+        <span class="discover-dots dots-1"></span>
+        <span class="discover-dots dots-2"></span>
+        <span class="discover-dots dots-3"></span>
+        <span class="discover-dots dots-4"></span>
+        <span class="discover-dots dots-5"></span>
+        <span class="discover-dots dots-6"></span>
+        <span class="discover-dots dots-7"></span>
+    </div>
+
+    <section class="trust-strip" id="confiance">
+        <div class="container">
+            <p class="trust-title">Déjà adopté dans des établissements francophones (placeholders)</p>
+            <div class="trust-logos" aria-label="Logos partenaires en placeholder">
+                <div class="trust-logo">École Lumière</div>
+                <div class="trust-logo">Collège Horizon</div>
+                <div class="trust-logo">Groupe Scolaire Voltaire</div>
+                <div class="trust-logo">Académie Nova</div>
+                <div class="trust-logo">Institut Montaigne</div>
+                <div class="trust-logo">Campus Pédagogique</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="workflow-section" id="process">
+        <div class="container">
+            <h2 class="section-title">Comment ça marche</h2>
+            <p class="workflow-intro">Une base simple pour piloter l’organisation pédagogique avec une logique IA, sans complexité technique.</p>
+            <div class="workflow-grid">
+                <article class="workflow-card">
+                    <span class="material-symbols-outlined workflow-icon">search_insights</span>
+                    <h3>1. Diagnostiquer</h3>
+                    <p>EduSoft centralise les informations de classe et met en avant les points d’attention prioritaires.</p>
+                </article>
+                <article class="workflow-card">
+                    <span class="material-symbols-outlined workflow-icon">overview_key</span>
+                    <h3>2. Organiser</h3>
+                    <p>Vous obtenez des propositions de groupes, séquences et objectifs avec des placeholders personnalisables.</p>
+                </article>
+                <article class="workflow-card">
+                    <span class="material-symbols-outlined workflow-icon">insights</span>
+                    <h3>3. Suivre</h3>
+                    <p>Le suivi visuel vous aide à ajuster rapidement les actions pédagogiques en continu.</p>
+                </article>
+            </div>
         </div>
     </section>
 
@@ -147,6 +195,73 @@
         </div>
     </section>
 
+    <section class="demo-section" id="demo-produit">
+        <div class="container demo-layout">
+            <div class="demo-copy">
+                <h2 class="section-title">Démo produit (placeholders)</h2>
+                <p>Un aperçu visuel de l’interface: tableaux de bord, suivi des élèves et planning organisationnel.</p>
+                <p>Les visuels ci-dessous sont des placeholders prêts à être remplacés par vos captures réelles.</p>
+                <div class="demo-cta-row">
+                    <a href="#" class="btn-primary">Demander une démo</a>
+                    <a href="#" class="btn-secondary">Voir toutes les captures</a>
+                </div>
+            </div>
+            <div class="demo-gallery" aria-label="Galerie de captures produit en placeholders">
+                <article class="demo-shot shot-large">
+                    <div class="shot-header">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    </div>
+                    <div class="shot-content">
+                        <p class="shot-title">Dashboard classe</p>
+                        <div class="shot-bars"><span></span><span></span><span></span></div>
+                    </div>
+                </article>
+                <article class="demo-shot">
+                    <div class="shot-header">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    </div>
+                    <div class="shot-content">
+                        <p class="shot-title">Planification hebdo</p>
+                        <div class="shot-grid"><span></span><span></span><span></span><span></span></div>
+                    </div>
+                </article>
+                <article class="demo-shot">
+                    <div class="shot-header">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    </div>
+                    <div class="shot-content">
+                        <p class="shot-title">Suivi compétences</p>
+                        <div class="shot-bars"><span></span><span></span><span></span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">FAQ</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>EduSoft remplace-t-il mon organisation actuelle ?</summary>
+                    <p>Non, l’objectif est de structurer et simplifier ce que vous faites déjà, avec des suggestions IA adaptables.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Le paramétrage est-il long ?</summary>
+                    <p>La version template vise un démarrage rapide avec des placeholders modifiables en quelques minutes.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Puis-je l’utiliser en primaire et en collège ?</summary>
+                    <p>Oui, la structure présentée couvre les usages cycles 2/3 et début collège avec suivi multi-niveaux.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Est-ce compatible avec un déploiement progressif ?</summary>
+                    <p>Oui, vous pouvez démarrer sur une classe pilote puis étendre progressivement à l’établissement.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- =========================
          COMMENTAIRES / AVIS
          =========================
@@ -168,218 +283,255 @@
                         <span class="star filled">★</span>
                         <span class="star half">★</span>
                     </div>
-                    <p class="reviews-count">Basé sur 16 avis enseignants</p>
+                    <p class="reviews-count">Basé sur 17 avis enseignants</p>
 
                     <div class="rating-breakdown">
                         <div class="rating-row">
                             <span class="rating-label">5★</span>
-                            <div class="rating-bar"><span class="rating-fill" style="width: 62.5%;"></span></div>
-                            <span class="rating-value">62.5%</span>
+                            <div class="rating-bar"><span class="rating-fill" style="width: 58.8%;"></span></div>
+                            <span class="rating-value">58.8%</span>
                         </div>
                         <div class="rating-row">
                             <span class="rating-label">4★</span>
-                            <div class="rating-bar"><span class="rating-fill" style="width: 12.5%;"></span></div>
-                            <span class="rating-value">12.5%</span>
+                            <div class="rating-bar"><span class="rating-fill" style="width: 17.6%;"></span></div>
+                            <span class="rating-value">17.6%</span>
                         </div>
                         <div class="rating-row">
                             <span class="rating-label">3★</span>
-                            <div class="rating-bar"><span class="rating-fill" style="width: 12.5%;"></span></div>
-                            <span class="rating-value">12.5%</span>
+                            <div class="rating-bar"><span class="rating-fill" style="width: 11.8%;"></span></div>
+                            <span class="rating-value">11.8%</span>
                         </div>
                         <div class="rating-row">
                             <span class="rating-label">2★</span>
-                            <div class="rating-bar"><span class="rating-fill" style="width: 6.25%;"></span></div>
-                            <span class="rating-value">6.25%</span>
+                            <div class="rating-bar"><span class="rating-fill" style="width: 5.9%;"></span></div>
+                            <span class="rating-value">5.9%</span>
                         </div>
                         <div class="rating-row">
                             <span class="rating-label">1★</span>
-                            <div class="rating-bar"><span class="rating-fill" style="width: 6.25%;"></span></div>
-                            <span class="rating-value">6.25%</span>
+                            <div class="rating-bar"><span class="rating-fill" style="width: 5.9%;"></span></div>
+                            <span class="rating-value">5.9%</span>
                         </div>
                     </div>
                 </aside>
 
-                <div class="comments-list">
+                <div class="comments-list" id="commentsList">
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar avatar-marie">MD</span><a href="/marie" class="comment-user-link"><strong>Marie Dupont</strong></a></span> · CM2 · Paris, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar avatar-marie">MD</span><a href="marie/" class="comment-user-link"><strong>Marie Dupont</strong></a></span> · CM2 · Paris, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 03/03/2026</p>
                         <p class="comment-title">Excellent pour différencier sans perdre de temps</p>
                         <p class="comment-text">"Interface claire, simple à prendre en main même pour une classe hétérogène."</p>
-                        <div class="comment-photos" aria-label="Photos liées à l'avis"><div class="photo-placeholder">Photo 1</div><div class="photo-placeholder">Photo 2</div></div>
+                        <div class="comment-photos" aria-label="Photos liées à l'avis"><img class="comment-photo" src="marie/image1.JPG" alt="Photo partagée par Marie - image 1"><img class="comment-photo" src="marie/image2.JPG" alt="Photo partagée par Marie - image 2"></div>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar avatar-jacques">JM</span><a href="/jacques" class="comment-user-link"><strong>Jacques Moreau</strong></a></span> · CE2 · Marseille, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar avatar-jacques">JM</span><a href="jacques/" class="comment-user-link"><strong>Jacques Moreau</strong></a></span> · CE2 · Marseille, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 4,0 sur 5</p>
+                        <p class="comment-date">Publié le 02/03/2026</p>
                         <p class="comment-title">Très utile au quotidien</p>
                         <p class="comment-text">"Le suivi des élèves est bien plus rapide qu'avant, je gagne un temps précieux."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">CR</span><a href="/claire" class="comment-user-link"><strong>Claire Renard</strong></a></span> · CM1 · Toulouse, France</p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">CR</span><a href="claire/" class="comment-user-link"><strong>Claire Renard</strong></a></span> · CM1 · Toulouse, France</p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 01/03/2026</p>
                         <p class="comment-title">Support très utile pour la personnalisation</p>
                         <p class="comment-text">"Les parcours sont faciles à adapter et les élèves avancent avec plus de confiance."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">KB</span><a href="/karim" class="comment-user-link"><strong>Karim Benali</strong></a></span> · Sixième · Lyon, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">KB</span><a href="karim/" class="comment-user-link"><strong>Karim Benali</strong></a></span> · Sixième · Lyon, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 4,0 sur 5</p>
+                        <p class="comment-date">Publié le 28/02/2026</p>
                         <p class="comment-title">Très bon suivi des progrès</p>
                         <p class="comment-text">"Les tableaux de bord sont clairs et m'aident à préparer mes séances plus vite."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">SM</span><a href="/sophie" class="comment-user-link"><strong>Sophie Martin</strong></a></span> · CE2 · Lille, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">LR</span><a href="lea/" class="comment-user-link"><strong>Léa Roche</strong></a></span> · CM1 · Dijon, France</p>
+                            <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span></div>
+                        </div>
+                        <p class="comment-rating-text">Note: 4,0 sur 5</p>
+                        <p class="comment-date">Publié le 17/02/2026</p>
+                        <p class="comment-title">Très bon outil, quelques détails à peaufiner</p>
+                        <p class="comment-text">"Le suivi des compétences est très utile et globalement fluide, j'aimerais juste quelques options en plus sur les exports."</p>
+                    </article>
+
+                    <article class="comment-card">
+                        <div class="comment-head">
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">SM</span><a href="sophie/" class="comment-user-link"><strong>Sophie Martin</strong></a></span> · CE2 · Lille, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 27/02/2026</p>
                         <p class="comment-title">Un vrai gain de temps en classe</p>
                         <p class="comment-text">"Je recommande pour la différenciation: rapide à paramétrer et très intuitif."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar avatar-helene">HR</span><a href="/helene" class="comment-user-link"><strong>Hélène Roussel</strong></a></span> · Sixième · Nantes, France</p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar avatar-helene">HR</span><a href="helene/" class="comment-user-link"><strong>Hélène Roussel</strong></a></span> · Sixième · Nantes, France</p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 26/02/2026</p>
                         <p class="comment-title">Très pertinent pour le suivi des 6e</p>
                         <p class="comment-text">"Les indicateurs sont clairs, je repère vite les besoins et je gagne du temps chaque semaine."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar avatar-steve">SL</span><a href="/steve" class="comment-user-link"><strong>Steve Lambert</strong></a></span> · CM1 · Roquefort-la-Bédoule, France</p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar avatar-steve">SL</span><a href="steve/" class="comment-user-link"><strong>Steve Lambert</strong></a></span> · CM1 · Roquefort-la-Bédoule, France</p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 25/02/2026</p>
                         <p class="comment-title">Excellent outil pour motiver les élèves</p>
                         <p class="comment-text">"Mes élèves sont plus impliqués et la différenciation est beaucoup plus simple à gérer au quotidien."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">NG</span><a href="/nora" class="comment-user-link"><strong>Nora Girard</strong></a></span> · CM2 · Bordeaux, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">NG</span><a href="nora/" class="comment-user-link"><strong>Nora Girard</strong></a></span> · CM2 · Bordeaux, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 24/02/2026</p>
                         <p class="comment-title">Très bon accompagnement pédagogique</p>
                         <p class="comment-text">"Le suivi individualisé est excellent et les parents comprennent mieux les progrès."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">EC</span><a href="/emma" class="comment-user-link"><strong>Emma Caron</strong></a></span> · CE1 · Bruxelles, Belgique · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">EC</span><a href="emma/" class="comment-user-link"><strong>Emma Caron</strong></a></span> · CE1 · Bruxelles, Belgique · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 23/02/2026</p>
                         <p class="comment-title">Élèves plus engagés dès la 1re semaine</p>
                         <p class="comment-text">"J'ai vu une vraie progression de motivation sur les activités différenciées."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">LP</span><a href="/lucas" class="comment-user-link"><strong>Lucas Petit</strong></a></span> · CM2 · Montpellier, France</p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">LP</span><a href="lucas/" class="comment-user-link"><strong>Lucas Petit</strong></a></span> · CM2 · Montpellier, France</p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 22/02/2026</p>
                         <p class="comment-title">Parfait pour suivre la progression</p>
                         <p class="comment-text">"La progression est lisible pour moi et motivante pour les élèves."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">IB</span><a href="/ines" class="comment-user-link"><strong>Inès Bernard</strong></a></span> · CE2 · Nice, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">IB</span><a href="ines/" class="comment-user-link"><strong>Inès Bernard</strong></a></span> · CE2 · Nice, France · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 21/02/2026</p>
                         <p class="comment-title">Simple et efficace</p>
                         <p class="comment-text">"On comprend vite les fonctionnalités et les adaptations proposées sont pertinentes."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">TL</span><a href="/thomas" class="comment-user-link"><strong>Thomas Leroy</strong></a></span> · CM1 · Strasbourg, France</p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">TL</span><a href="thomas/" class="comment-user-link"><strong>Thomas Leroy</strong></a></span> · CM1 · Strasbourg, France</p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 5,0 sur 5</p>
+                        <p class="comment-date">Publié le 20/02/2026</p>
                         <p class="comment-title">Très bon outil de pilotage</p>
                         <p class="comment-text">"Le tableau de bord me permet d'ajuster rapidement mes groupes de besoin."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">PD</span><a href="/pauline" class="comment-user-link"><strong>Pauline Dubois</strong></a></span> · CE1 · Rennes, France</p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">PD</span><a href="pauline/" class="comment-user-link"><strong>Pauline Dubois</strong></a></span> · CE1 · Rennes, France</p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span><span class="star empty">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 3,0 sur 5</p>
+                        <p class="comment-date">Publié le 19/02/2026</p>
                         <p class="comment-title">Bon début mais encore des limites</p>
                         <p class="comment-text">"L'outil est intéressant mais j'aimerais plus d'options de personnalisation."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">ML</span><a href="/mehdi" class="comment-user-link"><strong>Mehdi Laurent</strong></a></span> · Sixième · Genève, Suisse · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">ML</span><a href="mehdi/" class="comment-user-link"><strong>Mehdi Laurent</strong></a></span> · Sixième · Genève, Suisse · <span class="verified-badge"><span class="material-symbols-outlined verified-icon">check_circle</span>Achat vérifié</span></p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span><span class="star empty">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 3,0 sur 5</p>
+                        <p class="comment-date">Publié le 18/02/2026</p>
                         <p class="comment-title">Utile mais prise en main moyenne</p>
                         <p class="comment-text">"La base est bonne, mais il me faut encore du temps pour l'intégrer à mes habitudes."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">CA</span><a href="/camille" class="comment-user-link"><strong>Camille Arnaud</strong></a></span> · CE1 · Reims, France</p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">CA</span><a href="camille/" class="comment-user-link"><strong>Camille Arnaud</strong></a></span> · CE1 · Reims, France</p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star filled">★</span><span class="star empty">★</span><span class="star empty">★</span><span class="star empty">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 2,0 sur 5</p>
+                        <p class="comment-date">Publié le 17/02/2026</p>
                         <p class="comment-title">Potentiel intéressant mais trop limité pour ma classe</p>
                         <p class="comment-text">"Les bases sont là, mais il me manque encore des réglages pour bien gérer mes groupes de niveau."</p>
                     </article>
 
                     <article class="comment-card">
                         <div class="comment-head">
-                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">YD</span><a href="/yanis" class="comment-user-link"><strong>Yanis Delorme</strong></a></span> · Sixième · Grenoble, France</p>
+                            <p class="comment-meta"><span class="reviewer-id"><span class="reviewer-avatar">YD</span><a href="yanis/" class="comment-user-link"><strong>Yanis Delorme</strong></a></span> · Sixième · Grenoble, France</p>
                             <div class="review-stars" aria-hidden="true"><span class="star filled">★</span><span class="star empty">★</span><span class="star empty">★</span><span class="star empty">★</span><span class="star empty">★</span></div>
                         </div>
                         <p class="comment-rating-text">Note: 1,0 sur 5</p>
+                        <p class="comment-date">Publié le 16/02/2026</p>
                         <p class="comment-title">Pas adapté à mon usage actuel</p>
                         <p class="comment-text">"Je n'ai pas réussi à intégrer l'outil dans mon organisation cette année, je réessaierai plus tard."</p>
                     </article>
                 </div>
+
+                <div class="reviews-actions">
+                    <button type="button" class="show-more-reviews-btn" id="showMoreReviewsBtn">afficher plus</button>
+                    <button type="button" class="show-less-reviews-btn" id="showLessReviewsBtn">afficher moins</button>
+                </div>
             </div>
 
-            <form class="comment-form" action="#" method="post">
-                <label for="commentName">Nom</label>
-                <input id="commentName" name="commentName" type="text" placeholder="Votre nom" />
+            <form class="comment-form" action="#" method="post" onsubmit="return false;">
+                <a href="connexion/" class="btn-signup comment-login-btn">Connexion</a>
 
-                <label for="commentRating">Note</label>
-                <select id="commentRating" name="commentRating">
-                    <option value="5">★★★★★ - 5/5</option>
-                    <option value="4">★★★★☆ - 4/5</option>
-                    <option value="3">★★★☆☆ - 3/5</option>
-                    <option value="2">★★☆☆☆ - 2/5</option>
-                    <option value="1">★☆☆☆☆ - 1/5</option>
-                </select>
+                <label for="commentRatingTrigger">Note</label>
+                <div class="rating-select" id="ratingSelect">
+                    <button type="button" class="rating-select-trigger" id="commentRatingTrigger" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="rating-stars">★★★★★</span> - 5/5
+                    </button>
+                    <div class="rating-select-menu" id="ratingSelectMenu" role="listbox" aria-label="Choisir une note">
+                        <button type="button" class="rating-option" data-value="5" role="option" aria-selected="true"><span class="rating-stars">★★★★★</span> - 5/5</button>
+                        <button type="button" class="rating-option" data-value="4" role="option" aria-selected="false"><span class="rating-stars">★★★★☆</span> - 4/5</button>
+                        <button type="button" class="rating-option" data-value="3" role="option" aria-selected="false"><span class="rating-stars">★★★☆☆</span> - 3/5</button>
+                        <button type="button" class="rating-option" data-value="2" role="option" aria-selected="false"><span class="rating-stars">★★☆☆☆</span> - 2/5</button>
+                        <button type="button" class="rating-option" data-value="1" role="option" aria-selected="false"><span class="rating-stars">★☆☆☆☆</span> - 1/5</button>
+                    </div>
+                    <input type="hidden" id="commentRating" name="commentRating" value="5">
+                </div>
 
                 <label for="commentMessage">Votre commentaire</label>
                 <textarea id="commentMessage" name="commentMessage" rows="4" placeholder="Écrivez votre commentaire..."></textarea>
 
-                <button type="submit" class="btn-primary">Publier</button>
+                <button type="button" class="btn-primary">Publier</button>
             </form>
         </div>
     </section>
@@ -419,13 +571,14 @@
         <div class="container footer-bottom">
             <p>© 2026 EduSoft. Tous droits réservés.</p>
             <div class="footer-mini-links">
-                <a href="#" class="footer-mini-link">Aide</a>
-                <a href="#" class="footer-mini-link">Mentions légales</a>
+                <a href="faq/" class="footer-mini-link">Aide</a>
+                <a href="mentions-legales/" class="footer-mini-link">Mentions légales</a>
             </div>
         </div>
     </footer>
 
     <!-- Main JS (mobile menu behavior + testimonial text reveal after font is loaded) -->
+    <script src="image-viewer.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
