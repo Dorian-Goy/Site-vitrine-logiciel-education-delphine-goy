@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Default profile avatar">
+  <rect width="128" height="128" rx="64" fill="#f1f3f4"/>
+  <circle cx="64" cy="42" r="20" fill="#202124"/>
+  <path d="M18 108c6-23 26-36 46-36s40 13 46 36" fill="#202124"/>
+  <rect x="76" y="66" width="36" height="32" rx="3" fill="#202124"/>
+  <rect x="82" y="72" width="12" height="20" fill="#f1f3f4"/>
+  <rect x="97" y="73" width="10" height="3" fill="#f1f3f4"/>
+  <rect x="97" y="79" width="10" height="3" fill="#f1f3f4"/>
+  <rect x="97" y="85" width="10" height="3" fill="#f1f3f4"/>
+</svg>

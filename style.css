@@ -1,25 +1,46 @@
-/* VARIABLES DE COULEURS (Look Google Material) */
+/* =========================================================
+   GLOBAL THEME TOKENS (CSS VARIABLES)
+   ---------------------------------------------------------
+   Why use variables?
+   - You centralize colors/transitions in one place.
+   - If you change one value here, it updates everywhere used.
+   - Great for maintenance and visual consistency.
+   ========================================================= */
 :root {
+    /* Primary accent blue used for key interactive elements */
     --google-blue: #1a73e8;
+    /* Main dark text color for readability */
     --text-dark: #3c4043;
+    /* Secondary/lighter text color */
     --text-light: #70757a;
+    /* Light background used for hero and subtle surfaces */
     --bg-light: #f8f9fa;
+    /* Pure white for cards/background blocks */
     --white: #ffffff;
+    /* Optional generic shadow token */
     --shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px rgba(60,64,67,0.15);
+    /* Generic smooth transition used for hover/interactive changes */
     --transition: all 0.3s ease;
 }
-/* EDIT 1. COMPORTEMENT GÉNÉRAL DU NAVIGATEUR */
+
+/* =========================================================
+   BASE DOCUMENT BEHAVIOR
+   ========================================================= */
 html {
+    /* Smooth anchor scrolling when clicking links like #features */
     scroll-behavior: smooth;
 }
-/* RESET DE BASE */
+
+/* Basic reset to avoid browser default spacing inconsistencies */
 * {
     margin: 0;
     padding: 0;
+    /* Width/height calculations include border and padding */
     box-sizing: border-box;
 }
 
 body {
+    /* Main typography for the site */
     font-family: 'Roboto', sans-serif;
     color: var(--text-dark);
     line-height: 1.6;
@@ -27,20 +48,27 @@ body {
 }
 
 .container {
+    /* Full-width layout with left/right breathing room */
     width: 100%;
     margin: 0;
     padding: 0 20px;
 }
 
-/* MENU DE NAVIGATION */
+/* =========================================================
+   HEADER / NAVIGATION LAYOUT
+   ========================================================= */
 .main-header {
+    /* Fixed visual height of top bar */
     height: 64px;
     display: flex;
     align-items: center;
+    /* Subtle line to separate header from page */
     border-bottom: 1px solid #e0e0e0;
+    /* Keeps header visible while scrolling */
     position: sticky;
     top: 0;
     background: var(--white);
+    /* Stays above most page content */
     z-index: 1000;
     width: 100%;
     padding: 0;
@@ -48,6 +76,7 @@ body {
 }
 
 nav {
+    /* Horizontal layout for logo/menu/actions */
     display: flex;
     height: 100%;
     padding: 0 20px;
@@ -59,12 +88,14 @@ nav {
 .logo {
     display: flex;
     align-items: center;
+    /* Space between icon and text */
     gap: 10px;
     margin-left: 0;
     font-size: 22px;
     color: var(--google-blue);
 }
-/* TITRE DE SECTION */
+
+/* Generic section title style */
 .section-title {
     text-align: center;
     font-size: 32px;
@@ -72,21 +103,28 @@ nav {
     color: var(--text-dark);
 }
 
-/* SECTION FONCTIONNALITÉS (GRILLE) */
+/* =========================================================
+   FEATURES SECTION
+   ========================================================= */
 .features-section {
     padding: 80px 0;
-    position: relative; /* needed so quotes can be positioned around this block */
+    position: relative;
 }
 
+/* Keep feature cards above potential decorative layers */
 .features-section .features-grid { position: relative; z-index: 30; }
 
 .features-grid {
+    /* Responsive card grid:
+       - auto-fit creates as many columns as possible
+       - each column never goes below 250px */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Rend la grille automatique */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
 .feature-card {
+    /* Card spacing and hover animation setup */
     padding: 30px;
     text-align: center;
     border-radius: 8px;
@@ -94,11 +132,13 @@ nav {
 }
 
 .feature-card:hover {
-    background-color: var(--bg-light); /* Effet de survol discret */
-    transform: translateY(-5px); /* Petit saut vers le haut */
+    /* Soft hover feedback */
+    background-color: var(--bg-light);
+    transform: translateY(-5px);
 }
 
 .feature-card .icon {
+    /* Big visual icon in each card */
     font-size: 40px;
     color: var(--google-blue);
     margin-bottom: 15px;
@@ -113,14 +153,19 @@ nav {
     font-size: 15px;
 }
 
+/* =========================================================
+   NAV SUB-BLOCKS (logo / center menu / right actions)
+   ========================================================= */
 .nav-links {
     display: flex;
+    /* Remove bullet points from UL */
     list-style: none;
     gap: 30px;
     align-items: center;
 }
 
 .nav-links a {
+    /* Menu link visual style */
     text-decoration: none;
     color: var(--text-light);
     font-weight: 500;
@@ -132,14 +177,18 @@ nav {
 }
 
 .nav-container {
+    /* Main row that contains logo + menu + action button */
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     gap: 30px;
+    /* Important anchor for absolute-positioned mobile toggle */
+    position: relative;
 }
 
 .nav-center {
+    /* Center menu takes remaining space between logo and actions */
     display: flex;
     flex: 1;
     justify-content: center;
@@ -147,12 +196,14 @@ nav {
 }
 
 .nav-actions {
+    /* Right-aligned action area */
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
 .btn-login {
+    /* Outlined secondary button style */
     padding: 8px 24px;
     border: 1px solid #dadce0;
     border-radius: 4px;
@@ -167,6 +218,7 @@ nav {
 }
 
 .btn-signup {
+    /* Filled primary button style (currently used by Connexion link) */
     background: var(--google-blue);
     color: white;
     padding: 10px 24px;
@@ -177,31 +229,43 @@ nav {
 }
 
 .btn-signup:hover {
+    /* Slightly darker blue on hover for feedback */
     background: #1557b0;
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .menu-toggle {
+    /* Hidden on desktop, visible only in mobile media query */
     display: none;
     flex-direction: column;
     background: none;
     border: none;
     cursor: pointer;
-    gap: 5px;
+    /* Distance between the 3 burger lines */
+    gap: 6px;
+    /* Keep icon above menu panel */
     z-index: 1001;
-    position: relative;
+    /* Larger clickable area improves usability */
+    padding: 8px;
+    /* Prevent rotated cross lines from being clipped */
+    overflow: visible;
 }
 
 .menu-toggle span {
-    width: 28px;
+    /* A burger line */
+    width: 25px;
     height: 3px;
-    background-color: #999;
+    background-color: var(--text-dark);
     border-radius: 2px;
+    /* Smooth transform/opacity when turning into a cross */
     transition: all 0.3s ease;
 }
 
-/* SECTION HERO */
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
 .hero {
+    /* Tall, centered intro area */
     padding: 100px 0;
     text-align: center;
     background-color: var(--bg-light);
@@ -210,16 +274,19 @@ nav {
 }
 
 .hero h1 {
+    /* Main headline */
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 20px;
 }
 
 .hero h1 span {
+    /* Colored part of headline */
     color: var(--google-blue);
 }
 
 .hero p {
+    /* Intro paragraph with max width for readability */
     font-size: 18px;
     color: var(--text-light);
     max-width: 600px;
@@ -227,6 +294,7 @@ nav {
 }
 
 .btn-primary {
+    /* Main CTA button style */
     background: var(--google-blue);
     color: white;
     padding: 12px 24px;
@@ -238,12 +306,13 @@ nav {
 }
 
 .btn-secondary {
+    /* Lighter CTA style */
     color: var(--google-blue);
     text-decoration: none;
     font-weight: 500;
 }
 
-/* SECTION DÉCOUVRIR - BUTTON */
+/* Discover section under hero */
 .discover-section {
     padding: 40px 0;
     background-color: var(--white);
@@ -251,6 +320,7 @@ nav {
 }
 
 .btn-discover {
+    /* Big rounded discover button */
     background: var(--google-blue);
     color: white;
     padding: 18px 48px;
@@ -264,13 +334,379 @@ nav {
 }
 
 .btn-discover:hover {
+    /* Lift + slight growth on hover */
     background: #1557b0;
     transform: translateY(-2px) scale(1.08);
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
-/* SECTION HERO - TESTIMONIALS */
+/* =========================================================
+   COMMENTS SECTION
+   ---------------------------------------------------------
+   User feedback/comments block placed above footer.
+   ========================================================= */
+.comments-section {
+    background: var(--white);
+    padding: 70px 0 40px;
+}
+
+.reviews-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) 1fr;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 24px;
+}
+
+.reviews-summary {
+    background: var(--bg-light);
+    border: 1px solid #dadce0;
+    border-radius: 12px;
+    padding: 16px;
+    position: sticky;
+    top: 84px;
+}
+
+.reviews-score {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.1;
+}
+
+.reviews-count {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.rating-breakdown {
+    margin-top: 12px;
+    border-top: 1px solid #e9ecef;
+    padding-top: 10px;
+    display: grid;
+    gap: 8px;
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.rating-row {
+    display: grid;
+    grid-template-columns: 34px 1fr 40px;
+    gap: 8px;
+    align-items: center;
+}
+
+.rating-label {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.rating-value {
+    text-align: right;
+    color: var(--text-light);
+}
+
+.rating-bar {
+    height: 8px;
+    background: #eceff1;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.rating-fill {
+    display: block;
+    height: 100%;
+    background: #fbbc04;
+}
+
+.review-stars {
+    display: inline-flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.star {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.star.filled {
+    color: #fbbc04;
+}
+
+.star.half {
+    color: #fbbc04;
+    opacity: 0.55;
+}
+
+.star.empty {
+    color: #dadce0;
+}
+
+.comments-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.comment-card {
+    background: var(--white);
+    border: 1px solid #dadce0;
+    border-radius: 12px;
+    padding: 16px 18px;
+}
+
+.comment-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.comment-title {
+    font-weight: 600;
+    margin: 10px 0 8px;
+    color: var(--text-dark);
+}
+
+.comment-text {
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.comment-meta {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.reviewer-id {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reviewer-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--bg-light);
+    background-image: url('assets/default-profile.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid #dadce0;
+    color: transparent;
+    font-size: 0;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+/* Optional per-user custom avatars for the 4 hero reviewers.
+   Keep these classes: once image files are present in assets/profiles/,
+   they will override the default avatar automatically. */
+.reviewer-avatar.avatar-steve {
+    background-image: url('assets/profiles/steve.jpg'), url('assets/default-profile.svg');
+}
+
+.reviewer-avatar.avatar-marie {
+    background-image: url('assets/profiles/marie.jpg'), url('assets/default-profile.svg');
+}
+
+.reviewer-avatar.avatar-jacques {
+    background-image: url('assets/profiles/jacques.jpg'), url('assets/default-profile.svg');
+}
+
+.reviewer-avatar.avatar-helene {
+    background-image: url('assets/profiles/helene.jpg'), url('assets/default-profile.svg');
+}
+
+.comment-rating-text {
+    color: var(--text-light);
+    font-size: 13px;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+
+.comment-user-link {
+    color: var(--google-blue);
+    text-decoration: none;
+}
+
+.comment-user-link:hover {
+    text-decoration: underline;
+}
+
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #188038;
+    font-weight: 500;
+}
+
+.verified-icon {
+    font-size: 16px;
+    line-height: 1;
+    color: #34a853;
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 700,
+      'GRAD' 0,
+      'opsz' 20;
+}
+
+.comment-photos {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.photo-placeholder {
+    width: 88px;
+    height: 88px;
+    border-radius: 8px;
+    border: 1px dashed #bdc1c6;
+    background: #f1f3f4;
+    color: var(--text-light);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6px;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #dadce0;
+}
+
+.comment-form label {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.comment-form input,
+.comment-form select,
+.comment-form textarea {
+    width: 100%;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--text-dark);
+    background: var(--white);
+}
+
+.comment-form textarea {
+    resize: vertical;
+}
+
+.comment-form .btn-primary {
+    align-self: flex-start;
+    margin-right: 0;
+}
+
+/* =========================================================
+   FOOTER
+   ---------------------------------------------------------
+   Bottom dark section for social links, contact details,
+   and quick links (Aide / Mentions légales).
+   ========================================================= */
+.site-footer {
+    background: var(--text-dark);
+    color: var(--white);
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    padding-bottom: 28px;
+}
+
+.footer-block h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-note {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 12px;
+}
+
+.footer-social-links,
+.footer-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-link {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.95;
+    transition: var(--transition);
+}
+
+.footer-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 16px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+}
+
+.footer-mini-links {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-mini-link {
+    font-size: 13px;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.footer-mini-link:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================================
+   FLOATING TESTIMONIALS LAYER
+   ========================================================= */
 .hero-testimonials {
+    /* Full overlay over hero, does not affect normal document flow */
     position: absolute;
     top: 0;
     left: 0;
@@ -282,32 +718,41 @@ nav {
 }
 
 .testimonial {
+    /* Each quote block is individually positioned */
     position: absolute;
-    /* allow quotes to expand rather than capping at 180px */
+    /* No max-width cap so cursive text can breathe */
     max-width: none;
+    /* Re-enable click on links inside each testimonial */
     pointer-events: auto;
+    /* Gentle floating motion */
     animation: float 3s ease-in-out infinite;
-    /* scale now included in animation so it isn't wiped out */
+    /* Start value matches keyframes to avoid first-frame size jump */
+    transform: translateY(0px) scale(1.2);
+    /* Scale/motion around top-left anchor */
     transform-origin: top left;
 }
 
 .testimonial-text {
+    /* Quote sentence styling */
     font-style: italic;
-    color: #555; /* lighter grey for cursive text */
-    font-size: 1.8em; /* significantly larger now */
+    color: #555;
+    font-size: 1.8em;
     line-height: 1.4;
     margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* added darker shadow */
-    font-family: 'Dancing Script', cursive; /* softer cursive font */
-    visibility: hidden; /* hide until font loads */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    font-family: 'Dancing Script', cursive;
+    /* Initially hidden; app.js reveals it after font loading */
+    visibility: hidden;
 }
 
 .testimonial-author {
+    /* Line below quote (name + class/age) */
     font-size: 0.85em;
     color: var(--text-light);
 }
 
 .testimonial-link {
+    /* Clickable profile name */
     color: var(--google-blue);
     text-decoration: none;
     font-weight: 500;
@@ -317,15 +762,22 @@ nav {
 
 .testimonial-link:hover {
     color: var(--google-blue);
-    text-decoration: underline; /* underline on hover already present */
+    text-decoration: underline;
 }
-/* fixed testimonial coordinates - edit these values to reposition */
+
+/* =========================================================
+   TESTIMONIAL COORDINATES (MANUAL POSITIONING)
+   ---------------------------------------------------------
+   Edit these values to move each quote:
+   - top: vertical position (% from top of hero)
+   - left: horizontal position (% from left of hero)
+   ========================================================= */
 .hero-testimonials .testimonial.t1 { top: 25%; left: 70%; }
-.hero-testimonials .testimonial.t2 { top: 60%; left: 16%; }
+.hero-testimonials .testimonial.t2 { top: 62%; left: 16%; }
 .hero-testimonials .testimonial.t3 { top: 15%; left: 5%; }
 .hero-testimonials .testimonial.t4 { top: 67%; left: 80%; }
 
-/* Positions aléatoires sans alignement */
+/* Stagger animation start times so all quotes don't move in sync */
 .t1 {
     animation-delay: 0s;
 }
@@ -342,6 +794,7 @@ nav {
     animation-delay: 1.5s;
 }
   
+/* Vertical floating animation (includes scale to preserve visual size) */
 @keyframes float {
     0%, 100% {
         transform: translateY(0px) scale(1.2);
@@ -350,77 +803,49 @@ nav {
         transform: translateY(-10px) scale(1.2);
     }
 }
-
-/* SECTION CITATIONS (Ton idée) */
-.quotes-section {
-    padding: 60px 0;
-}
-
-.quote-card {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.quote-text {
-    font-size: 20px;
-    font-style: italic;
-    color: var(--text-light); /* Gris clair comme demandé */
-    margin-bottom: 15px;
-}
-
-.quote-author {
-    font-size: 14px;
-    color: var(--text-dark);
-}
-
-.verified {
-    color: #34a853; /* Vert Google pour la confiance */
-    font-weight: bold;
-}
-
-.quotes-wrapper {
-    position: absolute; /* anchored to .features-section */
-    top: 0;
-    left: 20px;
-    right: 20px;
-    transform: none;
-    width: calc(100% - 40px);
-    height: 100%;
-    pointer-events: none; /* allow clicks through empty areas */
-}
-
-.quotes-cloud {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-
-/* Responsive adjustments */
+/* =========================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================= */
 @media (max-width: 900px) {
-    /* bring quotes slightly closer on tablet but keep them clear of content */
-    .q1 { top: 8%; left: 30%; }
-    .q2 { top: 8%; right: 30%; }
-    .q3 { top: 62%; left: 30%; }
-    .q4 { top: 62%; right: 30%; }
-    .q-item { max-width: 200px; font-size: 1em; }
+    /* Reserved for optional tablet-only tweaks */
 }
 
 @media (max-width: 768px) {
+    /* Show burger button on tablet/mobile width */
     .menu-toggle {
         display: flex;
+        /* Positioned between logo and right action area in current setup */
         position: absolute;
-        right: 120px;
+        right: 165px;
         top: 50%;
         transform: translateY(-50%);
         z-index: 1001;
+        /* Explicit icon box to build a clean symmetric cross */
+        width: 32px;
+        height: 32px;
+        align-items: center;
+        justify-content: center;
     }
+
+    .menu-toggle span {
+        /* Absolute line positioning allows precise burger->cross morph */
+        position: absolute;
+        left: 50%;
+        width: 24px;
+        transform: translateX(-50%);
+        transform-origin: center;
+    }
+
+    .menu-toggle span:nth-child(1) { top: 8px; }
+    .menu-toggle span:nth-child(2) { top: 14px; }
+    .menu-toggle span:nth-child(3) { top: 20px; }
     
+    /* Keep right actions visible in this breakpoint */
     .nav-actions {
         display: flex;
     }
     
+    /* Side panel menu behavior */
     .nav-center {
         position: fixed;
         left: 0;
@@ -438,6 +863,7 @@ nav {
         box-shadow: 2px 0 8px rgba(0,0,0,0.1);
     }
     
+    /* Open state applied by JS */
     .nav-center.active {
         transform: translateX(0);
     }
@@ -451,8 +877,10 @@ nav {
         padding: 12px 0;
     }
     
+    /* Button active state -> morph into complete centered cross */
     .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
     }
     
     .menu-toggle.active span:nth-child(2) {
@@ -460,13 +888,33 @@ nav {
     }
     
     .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(8px, -8px);
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
     }
 }
 
 @media (max-width: 600px) {
-    /* hide floating quotes on small screens to avoid clutter */
-    .quotes-wrapper { display: none; }
-    /* hide hero testimonials on mobile/PC detection by width */
+    /* Hide floating testimonials on small phones to avoid clutter */
     .hero-testimonials { display: none !important; }
+
+    .reviews-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-summary {
+        position: static;
+    }
+
+    /* Keep footer compact on small screens */
+    .site-footer {
+        padding-top: 28px;
+    }
+
+    .footer-bottom {
+        padding-bottom: 16px;
+    }
+
+    .comments-section {
+        padding-top: 50px;
+    }
 }
