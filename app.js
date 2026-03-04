@@ -59,6 +59,16 @@ if (document.fonts) {
   });
 }
 
+// --- Scroll to top on page load ---
+// Disable browser's built-in scroll restoration so it can't override us
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+window.addEventListener('load', function() {
+  window.scrollTo(0, 0);
+});
+
 // --- Discover gate reveal (show full page only after click) ---
 const discoverTrigger = document.getElementById('discoverTrigger');
 
@@ -71,31 +81,72 @@ if (discoverTrigger) {
       return;
     }
 
-    // Step 1: collapse dots in place — no camera movement
-    document.body.classList.remove('pre-discover');
-    document.body.classList.add('discovering');
-    discoverTrigger.setAttribute('aria-expanded', 'true');
+    // Helper: custom smooth scroll with easing, calls onDone when finished
+    function smoothScrollTo(targetY, duration, onDone) {
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      if (Math.abs(distance) < 2) { onDone && onDone(); return; }
+      const startTime = performance.now();
+      function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+        window.scrollTo(0, startY + distance * ease);
+        if (progress < 1) requestAnimationFrame(step);
+        else onDone && onDone();
+      }
+      requestAnimationFrame(step);
+    }
 
-    // Step 2: after collapse finishes, shoot footer downward
-    window.setTimeout(function () {
-      document.body.classList.add('footer-shooting');
+    function startDiscoverAnimation() {
+      // Scroll down to footer and start dot collapse simultaneously
+      const contactEl = document.getElementById('contact');
+      const targetY = contactEl
+        ? contactEl.getBoundingClientRect().top + window.scrollY - 50
+        : document.documentElement.scrollHeight;
+      smoothScrollTo(targetY, 2000, null);
 
-      // Step 3: after footer shoots off, reveal site and jump to content
+      // Step 1: collapse dots — starts at the same time as the scroll above
+      document.body.classList.remove('pre-discover');
+      document.body.classList.add('discovering');
+      discoverTrigger.setAttribute('aria-expanded', 'true');
+
+      // Step 2: after collapse finishes, shoot footer downward
       window.setTimeout(function () {
-        document.body.classList.add('discover-revealed');
+        document.body.classList.add('footer-shooting');
 
-        const firstRevealedSection = document.querySelector('.trust-strip');
-        if (firstRevealedSection) {
-          firstRevealedSection.scrollIntoView({ behavior: 'instant', block: 'start' });
-        }
-
-        // Release footer back to normal flow (it's now at the real bottom)
+        // Step 3: after footer shoots off, reveal site
         window.setTimeout(function () {
-          document.body.classList.remove('discovering');
-          document.body.classList.remove('footer-shooting');
-        }, 50);
-      }, 290);
-    }, 1750);
+          const savedScrollY = window.scrollY;
+          // discover-fade collapses to height 0 on reveal — compensate so viewport doesn't jump
+          const discoverFade = document.querySelector('.discover-fade');
+          const fadeHeight = discoverFade ? discoverFade.offsetHeight : 0;
+
+          document.body.classList.add('discover-revealed');
+
+          requestAnimationFrame(function () {
+            window.scrollTo({ top: savedScrollY - fadeHeight, behavior: 'instant' });
+          });
+
+          // Release footer back to normal flow
+          window.setTimeout(function () {
+            document.body.classList.remove('discovering');
+            document.body.classList.remove('footer-shooting');
+          }, 50);
+        }, 290);
+      }, 1750);
+    }
+
+    // If not at top, scroll up first, then start the animation
+    if (window.scrollY > 10) {
+      smoothScrollTo(0, 1200, function () {
+        startDiscoverAnimation();
+      });
+    } else {
+      startDiscoverAnimation();
+    }
   });
 }
 

@@ -512,8 +512,7 @@ body.pre-discover .discover-section ~ section * {
     visibility: hidden;
 }
 
-/* Lock scroll during transition */
-body.discovering,
+/* Lock scroll only when footer is flying off */
 body.footer-shooting {
     overflow: hidden;
 }
@@ -551,7 +550,6 @@ body.footer-shooting .site-footer {
     animation: footerShootDown 0.28s cubic-bezier(0.4, 0, 1, 1) forwards;
 }
 
-/* Step 2: after collapse, sections reveal */
 body.discover-revealed .discover-section ~ section {
     opacity: 1;
     transform: translateY(0);
@@ -564,41 +562,162 @@ body.discover-revealed .discover-fade {
     opacity: 0;
     height: 0;
     margin: 0;
-    transition: none;
+}
+
+body.discover-revealed .discover-section {
+    display: none;
 }
 
 .trust-strip {
-    padding: 28px 0 20px;
-    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+    background: #ffffff;
+    overflow: hidden;
+    padding: 0;
+}
+
+.trust-strip-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+}
+
+.trust-commentary {
+    padding: 52px 48px 52px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    z-index: 2;
+    background: #f4f8ff;
+    border-right: 1px solid #e0eaf8;
+}
+
+.trust-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.trust-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.trust-headline {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.trust-desc {
+    font-size: 17px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.trust-stats {
+    display: flex;
+    gap: 12px;
+}
+
+.trust-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border: 1.5px solid #d0e4ff;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #eef4ff 0%, #f4f8ff 100%);
+    padding: 18px 22px;
+    min-width: 110px;
+    transition: var(--transition);
+}
+
+.trust-stat:hover {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, #dceeff 0%, #eef4ff 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.15);
+}
+
+.trust-stat-number {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.trust-stat-label {
+    font-size: 13px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 .trust-title {
-    text-align: center;
+    text-align: left;
     color: var(--text-light);
-    margin-bottom: 14px;
-    font-size: 14px;
+    margin-bottom: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 .trust-logos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
 }
 
 .trust-logo {
-    border: 1px solid #e5e9ef;
-    border-radius: 10px;
-    background: #fff;
+    border: 1.5px solid #d0e4ff;
+    border-radius: 8px;
+    background: #f8fbff;
     color: #5f6368;
-    padding: 10px 12px;
+    padding: 8px 12px;
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
+    text-decoration: none;
+    display: block;
     transition: var(--transition);
 }
 
 .trust-logo:hover {
+    background: #eef4ff;
+    color: var(--primary);
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(60, 64, 67, 0.12);
+}
+
+.trust-map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.trust-map::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.trust-map-img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .workflow-section {
@@ -1592,6 +1711,25 @@ body.discover-revealed .discover-fade {
         padding-top: 50px;
     }
 
+    .trust-strip-inner {
+        min-height: 520px;
+    }
+
+    .trust-commentary {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: auto;
+        margin: 24px 16px;
+        border-radius: 14px;
+    }
+
+    .trust-map {
+        position: relative;
+        min-height: 320px;
+    }
+
     .trust-logos,
     .workflow-grid,
     .demo-gallery {
@@ -1608,4 +1746,32 @@ body.discover-revealed .discover-fade {
         height: 300px;
     }
 
+}
+
+/* Hide floating testimonials when browser zoom is above 150% */
+@media (min-resolution: 1.51dppx) {
+    .hero-testimonials { display: none !important; }
+}
+
+/* At any zoom level other than exactly 100%, hide the discover gate entirely
+   and reveal all the sections that would normally be hidden behind it */
+@media not (resolution: 1dppx) {
+    .discover-section { display: none !important; }
+    .discover-fade    { display: none !important; }
+
+    body.pre-discover .discover-section ~ section {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        pointer-events: auto !important;
+        overflow: visible !important;
+        max-height: none !important;
+        margin-top: revert !important;
+        margin-bottom: revert !important;
+        padding-top: revert !important;
+        padding-bottom: revert !important;
+    }
+    body.pre-discover .discover-section ~ section * {
+        visibility: visible !important;
+    }
 }
